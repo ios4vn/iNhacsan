@@ -18,6 +18,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DLDemoRootViewController.swift</string>
 			<key>path</key>
 			<string>DLDemoRootViewController.swift</string>
 			<key>sourceTree</key>
@@ -38,6 +40,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DLDemoMainContentViewController.swift</string>
 			<key>path</key>
 			<string>DLDemoMainContentViewController.swift</string>
 			<key>sourceTree</key>
@@ -223,29 +227,17 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>66A298431AA89A2B00F39729</string>
-				<string>66A298231AA7308100F39729</string>
-				<string>66A298011AA72DD000F39729</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>iNhacsan</string>
-			<key>path</key>
-			<string>iNhacsan</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>66A298011AA72DD000F39729</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66A298021AA72DD000F39729</string>
+				<string>EC60934D1B2FD29D00B76EC5</string>
+				<string>EC6093521B2FD2C800B76EC5</string>
+				<string>EC6093511B2FD2BE00B76EC5</string>
+				<string>EC6093501B2FD2B800B76EC5</string>
+				<string>EC60934F1B2FD2AE00B76EC5</string>
+				<string>EC60934E1B2FD2A400B76EC5</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>path</key>
-			<string>Supporting Files</string>
+			<string>iNhacsan</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -255,6 +247,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>text.plist.xml</string>
+			<key>name</key>
+			<string>Info.plist</string>
 			<key>path</key>
 			<string>Info.plist</string>
 			<key>sourceTree</key>
@@ -266,6 +260,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>AppDelegate.swift</string>
 			<key>path</key>
 			<string>AppDelegate.swift</string>
 			<key>sourceTree</key>
@@ -319,6 +315,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>folder.assetcatalog</string>
+			<key>name</key>
+			<string>Images.xcassets</string>
 			<key>path</key>
 			<string>Images.xcassets</string>
 			<key>sourceTree</key>
@@ -581,21 +579,6 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>66A298231AA7308100F39729</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66A298271AA7343200F39729</string>
-				<string>66A2983F1AA73D0A00F39729</string>
-				<string>66A298411AA8974800F39729</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>66A298271AA7343200F39729</key>
 		<dict>
 			<key>fileEncoding</key>
@@ -604,6 +587,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DLHamburguerViewController.swift</string>
 			<key>path</key>
 			<string>DLHamburguerViewController.swift</string>
 			<key>sourceTree</key>
@@ -624,6 +609,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DLHamburguerContainerViewController.swift</string>
 			<key>path</key>
 			<string>DLHamburguerContainerViewController.swift</string>
 			<key>sourceTree</key>
@@ -644,6 +631,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DLHamburguerNavigationController.swift</string>
 			<key>path</key>
 			<string>DLHamburguerNavigationController.swift</string>
 			<key>sourceTree</key>
@@ -656,25 +645,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>66A298431AA89A2B00F39729</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>66A298031AA72DD000F39729</string>
-				<string>66A298071AA72DD000F39729</string>
-				<string>66A2980A1AA72DD000F39729</string>
-				<string>66A2980C1AA72DD000F39729</string>
-				<string>66A298441AA89A6200F39729</string>
-				<string>66575E301AA8B4E5001D71F9</string>
-				<string>66575E2E1AA8B1A1001D71F9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Demo UI</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>66A298441AA89A6200F39729</key>
 		<dict>
 			<key>fileEncoding</key>
@@ -683,6 +653,8 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DLDemoMenuViewController.swift</string>
 			<key>path</key>
 			<string>DLDemoMenuViewController.swift</string>
 			<key>sourceTree</key>
@@ -694,6 +666,144 @@
 			<string>66A298441AA89A6200F39729</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>EC60934D1B2FD29D00B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>66A298031AA72DD000F39729</string>
+				<string>66A298021AA72DD000F39729</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Application</string>
+			<key>path</key>
+			<string>Application</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC60934E1B2FD2A400B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>EC6093531B2FD2EE00B76EC5</string>
+				<string>EC6093541B2FD2F300B76EC5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC60934F1B2FD2AE00B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>EC6093551B2FD31F00B76EC5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Vendors</string>
+			<key>path</key>
+			<string>Vendors</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC6093501B2FD2B800B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Model</string>
+			<key>path</key>
+			<string>Model</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC6093511B2FD2BE00B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Library</string>
+			<key>path</key>
+			<string>Library</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC6093521B2FD2C800B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>66A298441AA89A6200F39729</string>
+				<string>66575E301AA8B4E5001D71F9</string>
+				<string>66575E2E1AA8B1A1001D71F9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Controllers</string>
+			<key>path</key>
+			<string>Controllers</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC6093531B2FD2EE00B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>66A298071AA72DD000F39729</string>
+				<string>66A2980C1AA72DD000F39729</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UI</string>
+			<key>path</key>
+			<string>UI</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC6093541B2FD2F300B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>66A2980A1AA72DD000F39729</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Images</string>
+			<key>path</key>
+			<string>Images</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EC6093551B2FD31F00B76EC5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>66A298271AA7343200F39729</string>
+				<string>66A2983F1AA73D0A00F39729</string>
+				<string>66A298411AA8974800F39729</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>DLHamburguerMenu</string>
+			<key>path</key>
+			<string>DLHamburguerMenu</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
