@@ -1,0 +1,1 @@
+../../../URBNShareKit/Pod/Classes/URBNImageProvider.h

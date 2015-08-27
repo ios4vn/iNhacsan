@@ -3,7 +3,7 @@
 //  DLHamburguerMenu
 //
 //  Created by Nacho on 5/3/15.
-//  Copyright (c) 2015 Ignacio Nieto Carvajal. All rights reserved.
+//  Copyright (c) 2015 DITECH TECHNOLOGY AND MEDIA JSC. All rights reserved.
 //
 
 import UIKit

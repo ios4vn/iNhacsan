@@ -1,2 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '7.0'
+pod 'HysteriaPlayer', '~> 2.0.0'
+pod 'SVProgressHUD'
+pod 'DZNSegmentedControl'
+pod 'INSPullToRefresh'
+pod 'URBNShareKit', '~> 0.2'

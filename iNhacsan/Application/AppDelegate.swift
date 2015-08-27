@@ -1,46 +1,110 @@
 //
 //  AppDelegate.swift
-//  DLHamburguerMenu
 //
-//  Created by Nacho on 4/3/15.
-//  Copyright (c) 2015 Ignacio Nieto Carvajal. All rights reserved.
+//  Created by Hai Trieu on 4/3/15.
+//  Copyright (c) 2015 DITECH TECHNOLOGY AND MEDIA JSC. All rights reserved.
 //
 
 import UIKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    let screenSize = UIScreen.mainScreen().bounds.size
+    
+    private var _showPlayerView: Bool!
+    var showPlayerView:Bool!{
+        get{
+            return _showPlayerView
+        }
+        set{
+            _showPlayerView = newValue
+            self.togglePlayerView(newValue)
+        }
+    }
+    
     var window: UIWindow?
-
+    var playerView: PlayerView!
+    var showBannerView:Bool!
+    var bannerView: BannerView!
+    var playerViewController: PlayViewController!
+    var menuViewController: MenuViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var rootViewController = self.window!.rootViewController
+        playerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("playerViewController") as! PlayViewController
+        self.initPlayerView()
+        self.initBannerView()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
     }
 
-
+    func initPlayerView() {
+        self.playerView = PlayerView.instanceFromNib() as! PlayerView
+        self.playerView.avatar.layer.cornerRadius = 20
+        self.playerView.avatar.layer.masksToBounds = true
+        self.playerView.avatar.layer.borderWidth = 1
+        self.playerView.avatar.layer.borderColor = UIColor.whiteColor().CGColor
+        self.playerView.showDetailPlayer.addTarget(self, action: "showDetailPlayer", forControlEvents: .TouchUpInside)
+    }
+    
+    func initBannerView(){
+        showBannerView = true
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeBannerText", name: loginStatusChangeNotificationKey, object: nil)
+        bannerView = BannerView.instanceFromNib() as! BannerView
+    }
+    
+    func changeBannerText(){
+         bannerView.lblMessage.text = bannerView.bannerText
+    }
+      
+    func togglePlayerView(show: Bool) {
+        
+        if show {
+            self.playerView.frame = CGRectMake(0, screenSize.height, screenSize.width, screenSize.height)
+            self.window?.addSubview(self.playerView)
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.playerView.frame = CGRectMake(0, self.screenSize.height - (CGFloat)(50), self.screenSize.width, self.screenSize.height)
+            })
+        }
+        else{
+            var tmpRect = self.playerView.frame
+            tmpRect.origin.y = screenSize.height
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.playerView.frame = tmpRect
+                }, completion: { (finish: Bool) -> Void in
+                self.playerView.removeFromSuperview()
+            })
+        }
+        self.playerView.isPlaying = HysteriaPlayer.sharedInstance().isPlaying()
+    }
+    
+    func showDetailPlayer() {
+        var rootViewController = self.window!.rootViewController as! DLHamburguerViewController
+        var contentView = rootViewController.contentViewController as! UINavigationController
+        contentView.pushViewController(self.playerViewController, animated: true)
+    }
 }
 

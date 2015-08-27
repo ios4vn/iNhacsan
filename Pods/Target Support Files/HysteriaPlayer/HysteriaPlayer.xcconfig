@@ -1,0 +1,1 @@
+HYSTERIAPLAYER_OTHER_LDFLAGS = -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreMedia"

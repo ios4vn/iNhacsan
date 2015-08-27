@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3927D08B-924D-450D-83BA-3C3386162A23</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iNhacsan</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>07B0C2D4509DD6934112EB15F58F22BE164258B5</key>
+		<string>https://github.com/QN-Blue-Gao/iNhacsan.git</string>
+		<key>5874eb64-89be-6742-9c27-e7c02bd79401++3750</key>
+		<string>http://14.160.25.214:8444/svn/Mobisport.vn/bestting/ImPrety/iNhacsan</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iNhacsan.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>07B0C2D4509DD6934112EB15F58F22BE164258B5</key>
+		<string>..</string>
+		<key>5874eb64-89be-6742-9c27-e7c02bd79401++3750</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>5874eb64-89be-6742-9c27-e7c02bd79401++3750</key>
+		<string>http://14.160.25.214:8444/svn/Mobisport.vn</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/QN-Blue-Gao/iNhacsan.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>07B0C2D4509DD6934112EB15F58F22BE164258B5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5874eb64-89be-6742-9c27-e7c02bd79401++3750</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>07B0C2D4509DD6934112EB15F58F22BE164258B5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Source</string>
+		</dict>
+	</array>
+</dict>
+</plist>
