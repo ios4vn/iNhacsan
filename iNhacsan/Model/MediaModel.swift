@@ -14,9 +14,16 @@ enum MediaType {
     case Album
 }
 
+enum MediaSourceType {
+    case Online
+    case Offline
+    case Ipod
+}
+
 class MediaModel: SuperModel {
  
     var type: MediaType?
+    var source: MediaSourceType = .Online
     var link: String?
     var thumb: String?
     var singer: String?

@@ -9,5 +9,14 @@
 import UIKit
 
 class RLMSong: RLMSuper {
+    
+    dynamic var singer = ""
+    dynamic var link = ""
+    dynamic var thumb = ""
+    dynamic var linkShare = ""
+    dynamic var lyrics = ""
+    dynamic var like = 0
+    dynamic var view = 0
+    dynamic var download = 0
    
 }

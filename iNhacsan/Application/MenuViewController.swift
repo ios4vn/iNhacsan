@@ -41,7 +41,7 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -67,9 +67,12 @@ extension MenuViewController: UICollectionViewDataSource {
         case 5:
             imageNamed = "sidebar_icon_top.png"
             title = "Top đề cử"
-        default:
+        case 6:
             imageNamed = "sidebar_icon_top.png"
             title = "Top video"
+        default:
+            imageNamed = "sidebar_icon_top.png"
+            title = "Nhạc offline"
         }
         
         cell.icon.image = UIImage(named: imageNamed) as UIImage?
@@ -146,6 +149,9 @@ extension MenuViewController: UICollectionViewDelegate {
                     viewController.parameters["type"] = "top_video"
                     viewController.titleName = "Top video"
                     contentViewController = UINavigationController(rootViewController: viewController)
+                case 7:
+                    contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("OfflineView") as! UINavigationController
+                    break
                 default:
                     break
                 }

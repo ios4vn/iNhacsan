@@ -37,6 +37,7 @@
 		EC218AD01B6F1F31008B8449 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC218ACF1B6F1F31008B8449 /* AppUser.swift */; };
 		EC218AD51B6F5AF6008B8449 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC218AD41B6F5AF6008B8449 /* SignUpViewController.swift */; };
 		EC3087881B6C70D3005CA0CD /* AlbumSongsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3087871B6C70D3005CA0CD /* AlbumSongsViewController.swift */; };
+		EC37D0521B98093700C28873 /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC37D0511B98093700C28873 /* OfflineViewController.swift */; };
 		EC39F02E1B7DD0C100AD480D /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC39F02D1B7DD0C100AD480D /* BannerView.swift */; };
 		EC39F0301B7DD0CE00AD480D /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC39F02F1B7DD0CE00AD480D /* BannerView.xib */; };
 		EC39F0341B7DD21C00AD480D /* hidebtn.png in Resources */ = {isa = PBXBuildFile; fileRef = EC39F0321B7DD21C00AD480D /* hidebtn.png */; };
@@ -337,6 +338,7 @@
 		EC218ACF1B6F1F31008B8449 /* AppUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		EC218AD41B6F5AF6008B8449 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EC3087871B6C70D3005CA0CD /* AlbumSongsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumSongsViewController.swift; sourceTree = "<group>"; };
+		EC37D0511B98093700C28873 /* OfflineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		EC39F02D1B7DD0C100AD480D /* BannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		EC39F02F1B7DD0CE00AD480D /* BannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerView.xib; sourceTree = "<group>"; };
 		EC39F0321B7DD21C00AD480D /* hidebtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hidebtn.png; sourceTree = "<group>"; };
@@ -634,6 +636,14 @@
 				EC1960141B79F9C9008002D5 /* INSVinePullToRefresh.xib */,
 			);
 			name = INSPullToRefresh;
+			sourceTree = "<group>";
+		};
+		EC37D04D1B9808E400C28873 /* Offline */ = {
+			isa = PBXGroup;
+			children = (
+				EC37D0511B98093700C28873 /* OfflineViewController.swift */,
+			);
+			name = Offline;
 			sourceTree = "<group>";
 		};
 		EC39F0311B7DD20000AD480D /* Banner */ = {
@@ -976,6 +986,7 @@
 		EC71D6F81B65E43D00E0056E /* MediaControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC37D04D1B9808E400C28873 /* Offline */,
 				EC85DA211B833946000E0D55 /* Search */,
 				EC5949171B7200D4006381A8 /* Common */,
 				EC70714B1B6B80D8007CAF25 /* Albums */,
@@ -1238,6 +1249,7 @@
 				TargetAttributes = {
 					66A297FD1AA72DD000F39729 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FQJ88D2HMW;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1531,6 +1543,7 @@
 				ECB66D801B870468006E1EC7 /* RLMAlbum.swift in Sources */,
 				EC218AD01B6F1F31008B8449 /* AppUser.swift in Sources */,
 				ECCEB5951B5F4B7A0090E194 /* ParentCategoryViewController.swift in Sources */,
+				EC37D0521B98093700C28873 /* OfflineViewController.swift in Sources */,
 				ECCEB5931B5F48830090E194 /* UIColorExtension.swift in Sources */,
 				EC99723A1B730C880090ED91 /* VideoListViewController.swift in Sources */,
 				ECDEAC9C1B671D0000A1AF93 /* PlayerSongCell.swift in Sources */,
@@ -1697,7 +1710,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Trieu Nguyen (25GN95PSR7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1706,6 +1720,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = iNhacsan;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iNhacsan/Application/iNhacsan-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1719,7 +1734,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Trieu Nguyen (25GN95PSR7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1728,6 +1744,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = iNhacsan;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "iNhacsan/Application/iNhacsan-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

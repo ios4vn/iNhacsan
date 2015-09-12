@@ -160,6 +160,16 @@ class LibraryAPI: NSObject {
         }
     }
     
-    
+    func download(url: String, filename: String, completion: (result: AnyObject?) -> Void) {
+        let path = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as! NSURL
+        let newPath = path.URLByAppendingPathComponent(filename)
+        Alamofire.download(.GET, url, { _ in newPath }).response { (request, response, _, error) -> Void in
+             println(response)
+            completion(result:response)
+        }
+        .progress { (bytesRead, totalBytesRead, totalBytesExpectedToRead) -> Void in
+             println(totalBytesRead)
+        }
+    }
     
 }

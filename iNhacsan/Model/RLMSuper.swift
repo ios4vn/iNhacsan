@@ -11,8 +11,8 @@ import Realm
 
 class RLMSuper: RLMObject {
 
-    var modelId = ""
-    var modelName = ""
+    dynamic var modelId = ""
+    dynamic var modelName = ""
 
     
 }

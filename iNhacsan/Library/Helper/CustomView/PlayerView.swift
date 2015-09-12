@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MediaPlayer
 
 class PlayerView: UIView {
 
@@ -20,7 +19,6 @@ class PlayerView: UIView {
         set {
             _songName = newValue
             self.lblSongName.text = newValue
-            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = [MPMediaItemPropertyTitle : self.songName!]
         }
     }
     
@@ -32,7 +30,6 @@ class PlayerView: UIView {
         set {
             _artirtName = newValue
             self.lblArtirtName.text = newValue
-            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = [MPMediaItemPropertyArtist : self.artirtName!]
         }
     }
     
@@ -43,7 +40,6 @@ class PlayerView: UIView {
         }
         set {
             _duration = newValue
-            MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo = [MPMediaItemPropertyPlaybackDuration : self.duration!]
         }
     }
     
