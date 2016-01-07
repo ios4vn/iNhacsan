@@ -37,13 +37,13 @@ class MainContentViewController: HTCollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        var logo = UIImage(named: "sidebar_logo.png") as UIImage?
+        let logo = UIImage(named: "sidebar_logo.png") as UIImage?
         self.navigationItem.titleView = UIImageView(image: logo)
     }
     
     override func processResponse(JSON: AnyObject?) {
         
-        var data: AnyObject? = JSON?.objectForKey("data")!
+        let data: AnyObject? = JSON?.objectForKey("data")!
         slides = data?.objectForKey("slide") as! [([String : AnyObject])]
         songs = data?.objectForKey("audio") as! [([String : AnyObject])]
         albums = data?.objectForKey("album") as! [([String : AnyObject])]
@@ -53,7 +53,7 @@ class MainContentViewController: HTCollectionViewController {
     }
 }
 
-extension MainContentViewController : UICollectionViewDataSource {
+extension MainContentViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 4
@@ -99,7 +99,7 @@ extension MainContentViewController : UICollectionViewDataSource {
         default:
             break
         }
-        return UICollectionViewCell.alloc()
+        return UICollectionViewCell()
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -194,7 +194,7 @@ extension MainContentViewController: UICollectionViewDelegate {
             break
         case 1:
             let albumJson = albums[indexPath.row]
-            var albumModel = Album(modelId: (albumJson["id"] as? String)!, modelName: (albumJson["name"] as? String)!)
+            let albumModel = Album(modelId: (albumJson["id"] as? String)!, modelName: (albumJson["name"] as? String)!)
             albumModel.thumb = albumJson["priavatar"] as? String
             let albumDetail = self.storyboard!.instantiateViewControllerWithIdentifier("albumDetailViewController") as! AlbumDetailViewController
             albumDetail.titleName = albumModel.modelName
@@ -223,7 +223,7 @@ extension MainContentViewController: UICollectionViewDelegate {
 extension MainContentViewController: HomeSectionDelegate {
 
     func didSelectMorePressAtIndex(index: Int){
-        self.navigationController?.visibleViewController.performSegueWithIdentifier(self.segues[index], sender: nil)
+        self.navigationController?.visibleViewController!.performSegueWithIdentifier(self.segues[index], sender: nil)
     }
     
 }

@@ -25,7 +25,7 @@ class SongCategoriesViewController: ChildCategoryViewController {
     
 }
 
-extension SongCategoriesViewController: UICollectionViewDataSource {
+extension SongCategoriesViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let album = data[indexPath.row]

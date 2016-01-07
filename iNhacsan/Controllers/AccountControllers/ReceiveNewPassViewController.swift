@@ -26,7 +26,7 @@ class ReceiveNewPassViewController: BaseUserViewController {
     }
 
     @IBAction func receivePasswordPress(){
-        LibraryAPI.sharedInstance.receiveNewPassword(AppUser.sharedInstance.mobile, password: txtNewPassword.text, resetPassKey: txtPasswordValid.text) { (result) -> Void in
+        LibraryAPI.sharedInstance.receiveNewPassword(AppUser.sharedInstance.mobile, password: txtNewPassword.text!, resetPassKey: txtPasswordValid.text!) { (result) -> Void in
             let status = result?.objectForKey("status") as! Int
             if status == 0 {
                 self.navigationController?.popToRootViewControllerAnimated(true)

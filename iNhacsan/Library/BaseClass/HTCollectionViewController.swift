@@ -37,8 +37,8 @@ class HTCollectionViewController: BaseViewController {
         super.viewDidLoad()
 
         self.collectionView.ins_addPullToRefreshWithHeight((CGFloat)(60), handler: { (scrollView: UIScrollView!) -> Void in
-            var delayInSeconds: Int64 = 1
-            var popTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds)
+            let delayInSeconds: Int64 = 1
+            let popTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds)
             dispatch_after(popTime, dispatch_get_main_queue(), {() in
                 self.refresh({ () -> Void in
                     scrollView.ins_endPullToRefresh()
@@ -52,12 +52,12 @@ class HTCollectionViewController: BaseViewController {
             })
         })
 
-        var infinityIndicator: AnyObject = self.infinityIndicatorViewFromCurrentStyle() as AnyObject
+        let infinityIndicator: AnyObject = self.infinityIndicatorViewFromCurrentStyle() as AnyObject
         self.collectionView.ins_infiniteScrollBackgroundView.addSubview(infinityIndicator as! UIView)
         (infinityIndicator as! INSAnimatable).startAnimating()
         self.collectionView.ins_infiniteScrollBackgroundView.preserveContentInset = false
         
-        var pullToRefresh: AnyObject = self.pullToRefreshViewFromCurrentStyle() as AnyObject
+        let pullToRefresh: AnyObject = self.pullToRefreshViewFromCurrentStyle() as AnyObject
         self.collectionView.ins_pullToRefreshBackgroundView.delegate = (pullToRefresh as! INSPullToRefreshBackgroundViewDelegate)
         self.collectionView.ins_pullToRefreshBackgroundView.addSubview(pullToRefresh as! UIView)
     }
@@ -85,11 +85,9 @@ class HTCollectionViewController: BaseViewController {
         currentPage++
         parameters["limit"] = "\(PageSize)"
         parameters["page"] = "\(currentPage)"
-        println("params is \(parameters)")
         Alamofire.request(.GET, GlobalDomain, parameters: parameters)
-            .responseJSON { (_, _, JSON, error) in
-                completion()
-                if error == nil {
+            .responseJSON { response in
+                if let JSON = response.result.value {
                     self.processResponse(JSON)
                     self.collectionView.reloadData()
                 }
@@ -125,7 +123,7 @@ class HTCollectionViewController: BaseViewController {
 extension HTCollectionViewController {
     
     func pullToRefreshViewFromCurrentStyle() -> UIView {
-        var defaultFrame: CGRect = CGRectMake(0, 0, 24, 24)
+        let defaultFrame: CGRect = CGRectMake(0, 0, 24, 24)
         switch self.style {
         case .Circle:
             return INSCirclePullToRefresh(frame: defaultFrame)
@@ -147,7 +145,7 @@ extension HTCollectionViewController {
     }
     
     func infinityIndicatorViewFromCurrentStyle() -> UIView {
-        var defaultFrame: CGRect = CGRectMake(0, 0, 24, 24)
+        let defaultFrame: CGRect = CGRectMake(0, 0, 24, 24)
         switch self.style {
         case .Circle:
             return INSCircleInfiniteIndicator(frame: defaultFrame)

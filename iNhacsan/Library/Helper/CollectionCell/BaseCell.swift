@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BaseCell: UICollectionViewCell {
     
@@ -16,9 +17,8 @@ class BaseCell: UICollectionViewCell {
             return _imageUrl
         }
         set{
-            _imageUrl = newValue.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-            let url: NSURL = NSURL(string: self.imageUrl.getImageUrl())!
-            imageThumb.setImageWithUrl(url, placeHolderImage: noImage)
+            _imageUrl = newValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
+            imageThumb.kf_setImageWithURL(NSURL(string: self.imageUrl.getImageUrl())!, placeholderImage: noImage)
         }
     }
     

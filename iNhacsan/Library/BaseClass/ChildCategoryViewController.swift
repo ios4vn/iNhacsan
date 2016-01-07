@@ -27,7 +27,7 @@ class ChildCategoryViewController: HTCollectionViewController {
     }
     
     override func processResponse(JSON: AnyObject?) {
-        var test: AnyObject? = JSON?.objectForKey("data")
+        let test: AnyObject? = JSON?.objectForKey("data")
         if test?.count > 0 {
             data += (test?.objectForKey("media") as? [[String: AnyObject]])!
         }

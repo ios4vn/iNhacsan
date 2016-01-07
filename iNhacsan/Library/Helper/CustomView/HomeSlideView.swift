@@ -22,7 +22,7 @@ class HomeSlideView: UIView {
             pageControl.numberOfPages = _slides.count
             for var i = 0; i < _slides.count; i++ {
                 var slide = _slides[i] as [String: AnyObject]!
-                var view = SlideView.instanceFromNib() as! SlideView
+                let view = SlideView.instanceFromNib() as! SlideView
                 view.frame = CGRect(x: CGFloat(i)*self.frame.size.width, y: CGFloat(0), width: self.frame.size.width, height: self.frame.size.height)
                 view.imageUrl = slide["priavatar"] as! String
                 self.scrHeader.addSubview(view)
@@ -48,7 +48,7 @@ class HomeSlideView: UIView {
 extension HomeSlideView: UIScrollViewDelegate {
 
     func scrollViewDidScroll(scrollView: UIScrollView){
-        var offset = scrollView.contentOffset
+        let offset = scrollView.contentOffset
         pageControl.currentPage = (Int)(offset.x/320)
     }
     

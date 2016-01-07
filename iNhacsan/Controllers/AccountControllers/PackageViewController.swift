@@ -15,7 +15,7 @@ class PackageViewController: BaseUserViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var nib = UINib(nibName: "PackageCell", bundle: nil)
+        let nib = UINib(nibName: "PackageCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "PackageCell")
         self.getPackage()
     }
@@ -43,7 +43,7 @@ extension PackageViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell:PackageCell = self.tableView.dequeueReusableCellWithIdentifier("PackageCell") as! PackageCell
+        let cell:PackageCell = self.tableView.dequeueReusableCellWithIdentifier("PackageCell") as! PackageCell
         let package = data[indexPath.row]
         cell.title = package["wifimss"] as! String
         return cell
@@ -56,7 +56,7 @@ extension PackageViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let package = data[indexPath.row]
-        var message = package["wifimss"] as! String
+        _ = package["wifimss"] as! String
         if AppUser.sharedInstance.is3G {
         
         }

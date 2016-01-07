@@ -112,7 +112,7 @@ extension MenuViewController: UICollectionViewDelegate {
 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let nvc = self.mainNavigationController()
+        _ = self.mainNavigationController()
         if let hamburguerViewController = self.findHamburguerViewController() {
             hamburguerViewController.hideMenuViewControllerWithCompletion({ () -> Void in
                 var contentViewController:UINavigationController!
@@ -130,21 +130,21 @@ extension MenuViewController: UICollectionViewDelegate {
                     contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier(self.identifiers[indexPath.row]) as! UINavigationController
                     break
                 case 4:
-                    var viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SongTop") as! SongListViewController
+                    let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SongTop") as! SongListViewController
                     viewController.parameters["act"] = "getTopMedia"
                     viewController.parameters["type"] = "top_nhac_san"
                     viewController.titleName = "Top nhạc sàn"
                     contentViewController = UINavigationController(rootViewController: viewController)
                     break
                 case 5:
-                    var viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SongTop") as! SongListViewController
+                    let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("SongTop") as! SongListViewController
                     viewController.parameters["act"] = "getTopMedia"
                     viewController.parameters["type"] = "top_de_cu"
                     viewController.titleName = "Top đề cử"
                     contentViewController = UINavigationController(rootViewController: viewController)
                     break
                 case 6:
-                    var viewController = self.storyboard?.instantiateViewControllerWithIdentifier("VideoTop") as! VideoListViewController
+                    let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("VideoTop") as! VideoListViewController
                     viewController.parameters["act"] = "getTopMedia"
                     viewController.parameters["type"] = "top_video"
                     viewController.titleName = "Top video"

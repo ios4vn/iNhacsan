@@ -43,7 +43,7 @@ class BaseViewController: UIViewController {
         super.viewDidAppear(animated)
         self.setupSearchBar()
         if showBannerView == true {
-            var frameForBanner = CGRectMake(0,self.view.frame.origin.y == 64 ? 0:64, self.view.frame.size.width, BannerHeight)
+            let frameForBanner = CGRectMake(0,self.view.frame.origin.y == 64 ? 0:64, self.view.frame.size.width, BannerHeight)
             appDelegate.bannerView.frame = frameForBanner
             self.view.addSubview(appDelegate.bannerView)
             self.topConstraint?.constant = frameForBanner.height
@@ -54,7 +54,7 @@ class BaseViewController: UIViewController {
             appDelegate.bannerView.frame = CGRectZero
         }
         UIView.animateWithDuration(0.25, animations: { () -> Void in
-            contentView?.layoutIfNeeded()
+            self.contentView?.layoutIfNeeded()
         })
     }
     
@@ -80,23 +80,23 @@ class BaseViewController: UIViewController {
         view.backgroundColor = bgColor
         
         /*Background navigation bar image*/
-        var bgImage = UIImage(named: "bartop_ios.png") as UIImage?
+        let bgImage = UIImage(named: "bartop_ios.png") as UIImage?
         self.navigationController?.navigationBar.setBackgroundImage(bgImage,
             forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         /*Left bar button item*/
         if self.navigationController?.viewControllers.count > 1 {
-            var backButton: UIButton = UIButton()
+            let backButton: UIButton = UIButton()
             backButton.setImage(UIImage(named: "btn_back"), forState: .Normal)
             backButton.frame = CGRectMake(0, 0, 45, 45)
             backButton.addTarget(self, action: "backPress", forControlEvents: .TouchUpInside)
-            var leftItem:UIBarButtonItem = UIBarButtonItem()
+            let leftItem:UIBarButtonItem = UIBarButtonItem()
             leftItem.customView = backButton
             self.navigationItem.leftBarButtonItem = leftItem
         }
         else{
-            var menuButton: UIButton = UIButton()
+            let menuButton: UIButton = UIButton()
             menuButton.setImage(UIImage(named: "btn-menu.png"), forState: .Normal)
             menuButton.frame = CGRectMake(0, 0, 45, 45)
             menuButton.addTarget(self, action: "menuPress", forControlEvents: .TouchUpInside)
@@ -139,7 +139,7 @@ extension BaseViewController: INSSearchBarDelegate {
     
     func searchBarDidTapReturn(searchBar: INSSearchBar!) {
         if searchBar.searchField.text != "" {
-            var searchView = self.storyboard?.instantiateViewControllerWithIdentifier("SearchView") as! SearchViewController
+            let searchView = self.storyboard?.instantiateViewControllerWithIdentifier("SearchView") as! SearchViewController
             searchView.keyword = searchBar.searchField.text
             searchView.showBannerView = false
             self.navigationController?.pushViewController(searchView, animated: true)

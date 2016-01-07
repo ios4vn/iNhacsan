@@ -33,16 +33,16 @@ class VideoDetailViewController: HTCollectionViewController {
         LibraryAPI.sharedInstance.getMediaDetail(self.video.modelId!, completion: { (result) -> Void in
             if (result?.objectForKey("status"))! as! Int == 0 {
                 if let data: AnyObject = result?.objectForKey("data")?.objectForKey("media"){
-                    self.video.link = data["link"] as? String
-                    self.video.thumb = data["priavatar"] as? String
-                    self.video.singer = data["singer"] as? String
-                    self.video.linkShare = data["link_share"] as? String
-                    self.video.lyrics = data["lyric"] as? String
+                    self.video.link = data.objectForKey("link") as? String
+                    self.video.thumb = data.objectForKey("priavatar") as? String
+                    self.video.singer = data.objectForKey("singer") as? String
+                    self.video.linkShare = data.objectForKey("link_share") as? String
+                    self.video.lyrics = data.objectForKey("lyric") as? String
                     self.wvLyrics.loadHTMLString("<body style='background-color: transparent;color:#fff;text-align:center;'>\(self.video.lyrics!)</body>", baseURL: nil)
-                    self.video.like = (data["liked"] as? Int)!
-                    self.video.view = (data["view"] as? Int)!
-                    self.video.download = (data["download"] as? Int)!
-                    self.video.isLiked = (data["islike"] as? Bool)!
+                    self.video.like = (data.objectForKey("liked") as? Int)!
+                    self.video.view = (data.objectForKey("view") as? Int)!
+                    self.video.download = (data.objectForKey("download") as? Int)!
+                    self.video.isLiked = (data.objectForKey("islike") as? Bool)!
                     self.corePlayer!.playURL(NSURL(string: self.video.link!)!)
                     self.parameters["act"] = "getOtherList"
                     self.parameters["id"] = self.video.modelId
@@ -113,7 +113,7 @@ extension VideoDetailViewController: UICollectionViewDelegate {
 
 }
 
-extension VideoDetailViewController: UICollectionViewDataSource {
+extension VideoDetailViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let album = data[indexPath.row]

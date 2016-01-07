@@ -79,27 +79,30 @@ class PlayViewController: UIViewController {
         if self.song.source == MediaSourceType.Online {
             let parameters = ["act":"getMediaDetail","id":self.song.modelId!]
             Alamofire.request(.GET, GlobalDomain, parameters: parameters)
-                .responseJSON { (_, _, JSON, _) in
-                    if (JSON?.objectForKey("status"))! as! Int == 0 {
-                        if let data: AnyObject = JSON?.objectForKey("data")?.objectForKey("media"){
-                            self.song.link = data["link"] as? String
-                            self.song.thumb = data["priavatar"] as? String
-                            self.song.singer = data["singer"] as? String
-                            self.song.linkShare = data["link_share"] as? String
-                            self.song.lyrics = data["lyric"] as? String
-                            self.song.like = (data["liked"] as? Int)!
-                            self.song.view = (data["view"] as? Int)!
-                            self.song.download = (data["download"] as? Int)!
-                            self.song.isLiked = (data["islike"] as? Bool)!
-                            self.listSongs.insert(self.song, atIndex: 0)
-                            self.resetAndPlayAtIndex(0)
+                .responseJSON {  response in
+                    if let JSON = response.result.value {
+                        if (JSON.objectForKey("status"))! as! Int == 0 {
+                            if let data: AnyObject = JSON.objectForKey("data")?.objectForKey("media"){
+//                                self.song.link = data.objectForKey("link") as? String
+                                self.song.link = "http://upload.nhacdj.vn/Nonstop/2015/2/14/128/NhacDJ.vn-Nonstop-Vit-Mix-Tuyn-Tp-Ca-Khc-V-Tnh-Yu-Valentine-2015-DJ-CDL-On-The-Mix.mp3"
+                                self.song.thumb = data.objectForKey("priavatar") as? String
+                                self.song.singer = data.objectForKey("singer") as? String
+                                self.song.linkShare = data.objectForKey("link_share") as? String
+                                self.song.lyrics = data.objectForKey("lyric") as? String
+                                self.song.like = (data.objectForKey("liked") as? Int)!
+                                self.song.view = (data.objectForKey("view") as? Int)!
+                                self.song.download = (data.objectForKey("download") as? Int)!
+                                self.song.isLiked = (data.objectForKey("islike") as? Bool)!
+                                self.listSongs.insert(self.song, atIndex: 0)
+                                self.resetAndPlayAtIndex(0)
+                            }
                         }
                     }
             }
         }
         else {
             let realm = RLMRealm.defaultRealm()
-            var results = RLMSong.objectsInRealm(realm, "modelId contains '\(self.song.modelId!)'")
+            let results = RLMSong.objectsInRealm(realm, "modelId contains '\(self.song.modelId!)'")
             if let rlmSong = results[(UInt)(0)] as? RLMSong {
                 self.song.singer = rlmSong.singer
                 self.song.source = MediaSourceType.Offline
@@ -159,7 +162,7 @@ class PlayViewController: UIViewController {
                 return NSURL(string:song.link!)!
             }
             else {
-                let path = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] as! NSURL
+                let path = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0] 
                 let filePath = path.URLByAppendingPathComponent(song.modelId! + ".mp3")
                 return filePath
             }
@@ -169,7 +172,7 @@ class PlayViewController: UIViewController {
     }
     
     func playSongAtIndex(index: Int){
-        var hysteriaPlayer: HysteriaPlayer = HysteriaPlayer.sharedInstance()
+        let hysteriaPlayer: HysteriaPlayer = HysteriaPlayer.sharedInstance()
         if !hysteriaPlayer.isPlaying() {
             self.play_pause(index)
         }
@@ -177,15 +180,10 @@ class PlayViewController: UIViewController {
     }
     
     func updateViewForPlayer() {
-        
         self.lblSongName.text = self.song.modelName
         self.lblSongArtist.text = self.song.singer
         if let imageUrl = self.song.thumb {
-            self.imgThumbnail.setImageWithUrlRequest(NSURLRequest(URL: NSURL(string:imageUrl)!), placeHolderImage: nil, success: { (request, response, image, fromCache) -> Void in
-                    self.imgThumbnail.image = image
-                }) { (request, response, error) -> Void in
-                    self.imgThumbnail.image = noImage!
-            }
+            self.imgThumbnail.kf_setImageWithURL(NSURL(string:imageUrl)!, placeholderImage: noImage)
         }
         else{
             self.imgThumbnail.image = noImage!
@@ -194,7 +192,6 @@ class PlayViewController: UIViewController {
         appDelegate.playerView.artirtName = self.song.singer
         appDelegate.playerView.avatarUrl = self.song.thumb
         self.clListSongs.reloadData()
-    
     }
     
     func setupPlayer() {
@@ -214,7 +211,7 @@ class PlayViewController: UIViewController {
                         self.duration.text = String(format: "-%d:%02d", (diffTime / 60), diffTime % 60)
                         let duration = NSTimeInterval(HysteriaPlayer.sharedInstance().getPlayingItemDurationTime())
                         appDelegate.playerView.duration = duration
-                        let artwork : MPMediaItemArtwork = MPMediaItemArtwork(image: noImage)
+                        let artwork : MPMediaItemArtwork = MPMediaItemArtwork(image: noImage!)
                         MPNowPlayingInfoCenter.defaultCenter().nowPlayingInfo =  [MPMediaItemPropertyTitle : self.song.modelName!,MPMediaItemPropertyPlaybackDuration : duration, MPMediaItemPropertyArtwork : artwork]
                         self.syncScrubber()
                     })
@@ -279,8 +276,6 @@ class PlayViewController: UIViewController {
             self.animationDisc(true)
             self.showStopButton()
             break
-        default:
-            break
         }
     }
     
@@ -327,17 +322,17 @@ class PlayViewController: UIViewController {
     }
     
     func pauseLayer(layer: CALayer) {
-        var pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+        let pausedTime: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
         layer.speed = 0.0
         layer.timeOffset = pausedTime
     }
     
     func resumeLayer(layer: CALayer){
-        var pausedTime: CFTimeInterval = layer.timeOffset
+        let pausedTime: CFTimeInterval = layer.timeOffset
         layer.speed = 1.0
         layer.timeOffset = 0.0
         layer.beginTime = 0.0
-        var timeSincePause: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
+        let timeSincePause: CFTimeInterval = layer.convertTime(CACurrentMediaTime(), fromLayer: nil) - pausedTime
         layer.beginTime = timeSincePause
     }
     
@@ -345,7 +340,7 @@ class PlayViewController: UIViewController {
     @IBAction func btnDownloadPress(sender: AnyObject) {
         let realm = RLMRealm.defaultRealm()
         realm.beginWriteTransaction()
-        var realmSong = RLMSong()
+        let realmSong = RLMSong()
         realmSong.modelId = song.modelId!
         realmSong.modelName = song.modelName!
         realmSong.singer = song.singer!
@@ -402,17 +397,17 @@ class PlayViewController: UIViewController {
     
     @IBAction func scrub(sender: AnyObject) {
         if sender.isKindOfClass(UISlider) {
-            var slider: UISlider = sender as! UISlider
-            var hysteriaPlayer: HysteriaPlayer = HysteriaPlayer.sharedInstance()
-            var durationF: Float = hysteriaPlayer.getPlayingItemDurationTime()
+            let slider: UISlider = sender as! UISlider
+            let hysteriaPlayer: HysteriaPlayer = HysteriaPlayer.sharedInstance()
+            let durationF: Float = hysteriaPlayer.getPlayingItemDurationTime()
             if durationF <= 0 {
                 return
             }
             if isfinite(durationF) {
-                var minValue: Float = slider.minimumValue
-                var maxValue: Float = slider.maximumValue
-                var value: Float = slider.value
-                var time: Double = (Double)(durationF * (value - minValue) / (maxValue - minValue))
+                let minValue: Float = slider.minimumValue
+                let maxValue: Float = slider.maximumValue
+                let value: Float = slider.value
+                let time: Double = (Double)(durationF * (value - minValue) / (maxValue - minValue))
                 hysteriaPlayer.seekToTime(time)
             }
         }
@@ -480,7 +475,7 @@ extension PlayViewController: UICollectionViewDelegate {
 extension PlayViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView){
-        var offset = scrollView.contentOffset
+        let offset = scrollView.contentOffset
         pgPageControl.currentPage = (Int)(offset.x/320)
     }
     

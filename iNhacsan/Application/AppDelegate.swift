@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var rootViewController = self.window!.rootViewController
+        _ = self.window!.rootViewController
         playerViewController = mainStoryboard.instantiateViewControllerWithIdentifier("playerViewController") as! PlayViewController
         self.initPlayerView()
         self.initBannerView()
@@ -102,8 +102,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func showDetailPlayer() {
-        var rootViewController = self.window!.rootViewController as! DLHamburguerViewController
-        var contentView = rootViewController.contentViewController as! UINavigationController
+        let rootViewController = self.window!.rootViewController as! DLHamburguerViewController
+        let contentView = rootViewController.contentViewController as! UINavigationController
         contentView.pushViewController(self.playerViewController, animated: true)
     }
 }

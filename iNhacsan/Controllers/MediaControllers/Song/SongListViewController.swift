@@ -26,7 +26,7 @@ class SongListViewController: HTCollectionViewController {
 }
 
 
-extension SongListViewController: UICollectionViewDataSource {
+extension SongListViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let album = data[indexPath.row]

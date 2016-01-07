@@ -24,7 +24,7 @@ class VideoCategoriesViewController: ChildCategoryViewController {
 
 }
 
-extension VideoCategoriesViewController: UICollectionViewDataSource {
+extension VideoCategoriesViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let album = data[indexPath.row]

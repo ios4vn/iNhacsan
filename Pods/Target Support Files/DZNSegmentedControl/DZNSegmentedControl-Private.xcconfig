@@ -1,6 +1,0 @@
-#include "DZNSegmentedControl.xcconfig"
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/DZNSegmentedControl" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/DZNSegmentedControl" "${PODS_ROOT}/Headers/Public/HysteriaPlayer" "${PODS_ROOT}/Headers/Public/INSPullToRefresh" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/URBNShareKit"
-OTHER_LDFLAGS = ${DZNSEGMENTEDCONTROL_OTHER_LDFLAGS}
-PODS_ROOT = ${SRCROOT}
-SKIP_INSTALL = YES

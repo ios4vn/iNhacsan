@@ -30,11 +30,11 @@ class SignUpViewController: BaseUserViewController {
     }
     
     @IBAction func signupPressed(sender: AnyObject) {
-        LibraryAPI.sharedInstance.userRegister(usernameField.text, password: passwordField.text) { (result) -> Void in
+        LibraryAPI.sharedInstance.userRegister(usernameField.text!, password: passwordField.text!) { (result) -> Void in
             let status = result?.objectForKey("status") as! Int
             if status == 0 {
-                AppUser.sharedInstance.username = self.usernameField.text
-                AppUser.sharedInstance.mobile = self.usernameField.text
+                AppUser.sharedInstance.username = self.usernameField.text!
+                AppUser.sharedInstance.mobile = self.usernameField.text!
                 self.performSegueWithIdentifier("showActiveView", sender: nil)
             }
             else {

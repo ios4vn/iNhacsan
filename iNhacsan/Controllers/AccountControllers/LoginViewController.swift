@@ -58,7 +58,7 @@ class LoginViewController: BaseUserViewController {
     
     
     func textFieldDidChange() {
-        if usernameField.text.isEmpty || passwordField.text.isEmpty
+        if usernameField.text!.isEmpty || passwordField.text!.isEmpty
         {
             self.loginButton(false)
         }
@@ -69,7 +69,7 @@ class LoginViewController: BaseUserViewController {
     }
     
     @IBAction func loginPressed(sender: AnyObject) {
-        LibraryAPI.sharedInstance.userLogin(usernameField.text, password: passwordField.text) { (result) -> Void in
+        LibraryAPI.sharedInstance.userLogin(usernameField.text!, password: passwordField.text!) { (result) -> Void in
             let status = result?.objectForKey("status") as! Int
             if status == 1 {
                 let data: AnyObject? = result?.objectForKey("data")
@@ -87,8 +87,8 @@ class LoginViewController: BaseUserViewController {
                 })
             }
             else if status == 0 {
-                AppUser.sharedInstance.username = self.usernameField.text
-                let activeView = self.storyboard?.instantiateViewControllerWithIdentifier("playerViewController") as! UIViewController
+                AppUser.sharedInstance.username = self.usernameField.text!
+                let activeView = (self.storyboard?.instantiateViewControllerWithIdentifier("playerViewController"))! as UIViewController
                 self.navigationController?.pushViewController(activeView, animated: true)
             }
             else {

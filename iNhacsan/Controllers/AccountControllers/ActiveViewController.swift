@@ -25,7 +25,7 @@ class ActiveViewController: BaseUserViewController {
     
 
     @IBAction func validatedPressed(sender: AnyObject) {
-        LibraryAPI.sharedInstance.userActive(AppUser.sharedInstance.username, active_code: validateTextField.text) { (result) -> Void in
+        LibraryAPI.sharedInstance.userActive(AppUser.sharedInstance.username, active_code: validateTextField.text!) { (result) -> Void in
             let status = result?.objectForKey("status") as! Int
             if status == 0 {
                 self.navigationController?.popToRootViewControllerAnimated(true)

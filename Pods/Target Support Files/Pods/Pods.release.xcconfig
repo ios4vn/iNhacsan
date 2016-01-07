@@ -1,5 +1,8 @@
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/DZNSegmentedControl" "${PODS_ROOT}/Headers/Public/HysteriaPlayer" "${PODS_ROOT}/Headers/Public/INSPullToRefresh" "${PODS_ROOT}/Headers/Public/SVProgressHUD" "${PODS_ROOT}/Headers/Public/URBNShareKit"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/DZNSegmentedControl" -isystem "${PODS_ROOT}/Headers/Public/HysteriaPlayer" -isystem "${PODS_ROOT}/Headers/Public/INSPullToRefresh" -isystem "${PODS_ROOT}/Headers/Public/SVProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/URBNShareKit"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"DZNSegmentedControl" -l"HysteriaPlayer" -l"INSPullToRefresh" -l"SVProgressHUD" -l"URBNShareKit" -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreMedia" -framework "QuartzCore" -framework "UIKit"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Alamofire.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/DZNSegmentedControl.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/HysteriaPlayer.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/INSPullToRefresh.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Kingfisher.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/SVProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/URBNShareKit.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "DZNSegmentedControl" -framework "HysteriaPlayer" -framework "INSPullToRefresh" -framework "Kingfisher" -framework "SVProgressHUD" -framework "URBNShareKit"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods
 PODS_ROOT = ${SRCROOT}/Pods

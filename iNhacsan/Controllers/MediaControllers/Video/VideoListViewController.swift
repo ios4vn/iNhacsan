@@ -22,7 +22,7 @@ class VideoListViewController: HTCollectionViewController {
 
 }
 
-extension VideoListViewController: UICollectionViewDataSource {
+extension VideoListViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let video = data[indexPath.row]

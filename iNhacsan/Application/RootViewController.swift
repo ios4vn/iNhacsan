@@ -28,8 +28,8 @@ class RootViewController: DLHamburguerViewController {
     }
     
     override func awakeFromNib() {
-        self.contentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoNavigationViewController") as! UIViewController
-        self.menuViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoMenuViewController") as! UIViewController
+        self.contentViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoNavigationViewController"))! as UIViewController
+        self.menuViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("DLDemoMenuViewController"))! as UIViewController
         appDelegate.menuViewController = self.menuViewController as! MenuViewController
     }
 }

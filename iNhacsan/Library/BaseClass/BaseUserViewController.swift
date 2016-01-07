@@ -20,14 +20,14 @@ class BaseUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var closeButton: UIButton = UIButton()
+        let closeButton: UIButton = UIButton()
         closeButton.setImage(UIImage(named: "login_close.png"), forState: .Normal)
         closeButton.frame = CGRectMake(self.view.frame.size.width - 50, 25, 44, 44)
         closeButton.addTarget(self, action: "closePress", forControlEvents: .TouchUpInside)
         self.view.addSubview(closeButton)
         
         // Visual Effect View for background
-        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark)) as UIVisualEffectView
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Dark)) as UIVisualEffectView
         visualEffectView.frame = self.view.frame
         visualEffectView.alpha = 0.5
         imageView.image = UIImage(named: "img1.jpg")
@@ -43,7 +43,7 @@ class BaseUserViewController: UIViewController {
         else{
             idx++
         }
-        var toImage = backGroundArray[idx];
+        let toImage = backGroundArray[idx];
         UIView.transitionWithView(self.imageView, duration: 3, options: .TransitionCrossDissolve, animations: {self.imageView.image = toImage}, completion: nil)
         
     }

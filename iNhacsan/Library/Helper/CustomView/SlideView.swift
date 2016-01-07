@@ -18,12 +18,7 @@ class SlideView: UIView {
         set{
             _imageUrl = newValue
             let url: NSURL = NSURL(string: newValue)!
-            imgThumb.setImageWithUrlRequest(NSURLRequest(URL: url), placeHolderImage: nil, success: { (request, response, image, fromCache) -> Void in
-                self.imgThumb.image = image
-                self.imgThumb.contentMode = .ScaleToFill
-                }) { (request, response, error) -> Void in
-                    
-            }
+            imgThumb.kf_setImageWithURL(url, placeholderImage: noImage)
         }
     }
     

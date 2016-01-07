@@ -28,8 +28,10 @@ class ParentCategoryViewController: BaseViewController {
     
     func refresh() {
         Alamofire.request(.GET, GlobalDomain, parameters: parameters)
-            .responseJSON { (_, _, JSON, _) in
-                self.processResponse(JSON)
+            .responseJSON { response in
+                if let JSON = response.result.value {
+                    self.processResponse(JSON)
+                }
         }
     }
     

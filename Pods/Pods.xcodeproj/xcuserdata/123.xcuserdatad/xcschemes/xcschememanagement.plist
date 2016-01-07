@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DZNSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>INSPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,37 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D275B6A01C0537DC40E604BB27658A8</key>
+		<key>0B7C0B89A9CED0A3F642F2D19BF299CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A10230ED54C521C1645650DF2D0797D</key>
+		<key>432ECC54282C84882B482CCB4CF227FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51D3250A6CB4BCAE582C02FCE7EAAE40</key>
+		<key>60B7A1A825E295EE56265796A61A09CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A73CC84FF9583EB31C603F4F0EB2423</key>
+		<key>78216C18133B0B7E651E35B820858282</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6BF60777DB8E3077A6CAA40ADB656901</key>
+		<key>7D1BFFDCA4A2AD5A9F4007B1556B44CE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93BD8B631DE87A3AD0DA9A8CBC83E123</key>
+		<key>9762A4F5E738427BEA0378EC2AAE2910</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B281DA29A9C3EDFB45BA53651F6BA611</key>
+		<key>C527558C9007595D2427A17EB68DBF63</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D18896DE412FB8108FED4795DD46DF8C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F91226101ECE8FCFD221A3EC54481F82</key>
 		<dict>
 			<key>primary</key>
 			<true/>

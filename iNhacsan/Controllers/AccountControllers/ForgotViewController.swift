@@ -24,10 +24,10 @@ class ForgotViewController: BaseUserViewController {
     }
     
     @IBAction func sendNewPasswordPress(sender: AnyObject?){
-        LibraryAPI.sharedInstance.sendConfirmKey(txtMobile.text, completion: { (result) -> Void in
+        LibraryAPI.sharedInstance.sendConfirmKey(txtMobile.text!, completion: { (result) -> Void in
             let status = result?.objectForKey("status") as! Int
             if status == 0 {
-                var resetView = self.storyboard?.instantiateViewControllerWithIdentifier("ReceiveNewPassView") as! UIViewController
+                let resetView = (self.storyboard?.instantiateViewControllerWithIdentifier("ReceiveNewPassView"))! as UIViewController
                 self.navigationController?.pushViewController(resetView, animated: true)
             }
         })
